@@ -10,9 +10,8 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 library.add(faGithub);
 
-const app = createApp(App)
+createApp(App)
   .use(createPinia())
   .use(router)
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");
-
