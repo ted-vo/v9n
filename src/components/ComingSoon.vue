@@ -20,7 +20,7 @@ defineProps<{
       <div class="social">
         <ul>
           <li>
-            <a href="https://github.com/ted-v9n" target="blank">
+            <a href="https://github.com/ted-vo" target="blank">
               <font-awesome-icon :icon="['fab', 'github']" />
             </a>
           </li>
