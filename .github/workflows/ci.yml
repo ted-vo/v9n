@@ -1,0 +1,36 @@
+name: CI
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Run eslint
+    steps:
+      - uses: action/checkout@v2
+      - uses: action/setup-node@v1
+        with:
+          node-version: "17.x"
+      - run: yarn
+      - run: yarn lint
+  build-and-public:
+    runs-on: ubuntu-latest
+    name: Build dist
+    steps:
+      - uses: action/checkout@v2
+      - uses: action/setup-node@v1
+        with:
+          node-version: "17.x"
+      - run: yarn
+      - run: yarn build
+      - uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: main
+          FOLDER: dist
+
